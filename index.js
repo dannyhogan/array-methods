@@ -14,7 +14,7 @@ function filter(array, cb) {
   let filtered = [];
   for(let i = 0; i < array.length; i++) {
     if(cb(array[i])) {
-      filtered[i] = array[i];
+      filtered[filtered.length] = array[i];
     }
   }
   return filtered;
