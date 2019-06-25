@@ -37,6 +37,12 @@ describe('filter array function', () => {
   it('returns filtered array from callback if truthy', () => {
     const nums = [1, 3, 4, 5, 6];
     const filtered = filter(nums, num => num > 3);
-    expect(filtered).toEqual([undefined, undefined, 4, 5, 6]);
+    expect(filtered).toEqual([4, 5, 6]);
+  })
+
+  it('returns filtered array', () => {
+    const words = ['hello', 'the', 'giraffe'];
+    const filtered = filter(words, word => word.length > 3);
+    expect(filtered).toEqual(['hello', 'giraffe']);
   })
 });
