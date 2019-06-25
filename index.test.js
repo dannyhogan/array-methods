@@ -12,9 +12,14 @@ describe('map array function', () => {
 describe('filter array function', () => {
   it('returns an array', () => {
     const numbers = [1, 2, 3];
-    const filtered = filter(numbers, num => {num * 2})
+    const filtered = filter(numbers, num => num * 2)
     expect(filtered).toEqual(expect.any(Array));
   });
 
   
+  it('filtered array equals arr', () => {
+    const numbers = [1, 2, 3];
+    const filtered = filter(numbers, num => num * 2);
+    expect(filtered).toHaveLength(numbers.length);
+  });
 });
