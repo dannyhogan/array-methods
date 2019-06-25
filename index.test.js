@@ -1,4 +1,4 @@
-const { map, filter } = require('./index');
+const { map, filter, findIndex } = require('./index');
 
 describe('map array function', () => {
   // Test for map function.
@@ -45,4 +45,24 @@ describe('filter array function', () => {
     const filtered = filter(words, word => word.length > 3);
     expect(filtered).toEqual(['hello', 'giraffe']);
   })
+});
+
+describe('indexOf array function' , () => {
+  it('return a number', () => {
+    const nums = [1, 2, 3];
+    const index = findIndex(nums, num => num > 2)
+    expect(index).toEqual(expect.any(Number));
+  });
+
+  it('returns index of first met condition in array', () => {
+    const nums = [1, 2, 3];
+    const index = findIndex(nums, num => num > 2)
+    expect(index).toEqual(2);
+  });
+
+  it('returns -1 if no condition met in array', () => {
+    const nums = [1, 2, 3];
+    const index = findIndex(nums, num => num > 3)
+    expect(index).toEqual(-1);
+  });
 });
