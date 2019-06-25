@@ -16,10 +16,15 @@ describe('filter array function', () => {
     expect(filtered).toEqual(expect.any(Array));
   });
 
-  
   it('filtered array equals arr', () => {
     const numbers = [1, 2, 3];
     const filtered = filter(numbers, num => num * 2);
     expect(filtered).toHaveLength(numbers.length);
   });
+
+  it('returns filtered array from callback if truthy', () => {
+    const nums = [1, 3, 4, 5, 6];
+    const filtered = filter(nums, num => num > 3);
+    expect(filtered).toEqual([undefined, undefined, 4, 5, 6]);
+  })
 });
