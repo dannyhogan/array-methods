@@ -23,6 +23,19 @@ function findIndex(arr, callback) {
   return -1;
 }
 
-module.exports = { map, filter, findIndex }
+function reduce(arr, callback, initialValue) {
+  let acc = initialValue;
+  let i = 0;
+  if(initialValue === undefined) {
+    acc = arr[0];
+    i = 1;
+  }
+  for(i; i < arr.length; i++) {
+    acc = callback(acc, arr[i]);
+  }
+  return acc;
+}
+
+module.exports = { map, filter, findIndex, reduce }
 
 
